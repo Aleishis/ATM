@@ -3,11 +3,29 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.cajeroAutomatico.itson.application.usecase;
+import com.cajeroAutomatico.itson.infrastructure.security.PasswordHasher;
+import com.cajeroAutomatico.itson.domain.repository.AccountRepository;
+import com.cajeroAutomatico.itson.infrastructure.persistance.AccountRepositoryImpl;
+import com.cajeroAutomatico.itson.domain.model.Account;
+
 
 /**
  *
  * @author alelo
  */
 public class LoginUseCase {
+    
+    AccountRepository repository = new AccountRepositoryImpl();
+    
+    public boolean login(String number, String nip){
+        
+        if (!repository.checkExists(number)){
+            return false;
+        }
+        
+        Account acc = repository.getByNumber(number);
+        
+        return PasswordHasher.checkHash(nip, acc.getHashNip());
+    }
     
 }

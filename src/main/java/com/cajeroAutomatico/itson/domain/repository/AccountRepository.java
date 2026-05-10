@@ -3,11 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.cajeroAutomatico.itson.domain.repository;
+import com.cajeroAutomatico.itson.domain.model.Account;
 
 /**
  *
  * @author alelo
  */
-public class AccountRepository {
+public interface AccountRepository {
+    
+    Account getByNumber(String number);
+    boolean checkExists(String number);
+    
     
 }

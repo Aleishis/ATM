@@ -8,6 +8,10 @@ package com.cajeroAutomatico.itson.domain.repository;
  *
  * @author alelo
  */
-public class TransactionRepository {
+public interface TransactionRepository {
+    
+    void getTransactionsByAccount(String id);
+    
+    
     
 }

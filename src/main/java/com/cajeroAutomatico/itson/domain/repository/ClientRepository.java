@@ -8,6 +8,8 @@ package com.cajeroAutomatico.itson.domain.repository;
  *
  * @author alelo
  */
-public class ClientRepository {
+public interface ClientRepository {
+    
+    
     
 }

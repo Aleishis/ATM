@@ -10,4 +10,10 @@ package com.cajeroAutomatico.itson.domain.model;
  */
 public class Client {
     
+    private int id;
+    private String name;
+    private String email;
+    private String hashPassword;
+    private boolean isActive;
+    
 }

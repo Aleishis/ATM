@@ -9,5 +9,43 @@ package com.cajeroAutomatico.itson.domain.model;
  * @author alelo
  */
 public class Account {
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public String getHashNip() {
+        return hashNip;
+    }
+
+    public void setHashNip(String hashNip) {
+        this.hashNip = hashNip;
+    }
+    
+    private int userId;
+    private String number;
+    private String hashNip;
+    
+    public Account (int userId, String number, String hashNip){
+        this.userId = userId;
+        this.number = number;
+        this.hashNip = hashNip;
+    }
+    
+    public float calculateBalance(){
+        
+    }
     
 }

@@ -9,5 +9,6 @@ package com.cajeroAutomatico.itson.domain.model;
  * @author alelo
  */
 public enum TransactionType {
-    
+    INGRESO,
+    EGRESO
 }
