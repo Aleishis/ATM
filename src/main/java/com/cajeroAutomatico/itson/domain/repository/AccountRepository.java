@@ -13,6 +13,7 @@ public interface AccountRepository {
     
     Account getByNumber(String number);
     boolean checkExists(String number);
+    boolean checkExistsById(int id);
     
     
 }

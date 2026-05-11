@@ -34,18 +34,22 @@ public class Account {
         this.hashNip = hashNip;
     }
     
+    public int getId(){
+        return id;
+    }
+    
+    private int id;
     private int userId;
     private String number;
     private String hashNip;
     
-    public Account (int userId, String number, String hashNip){
+    public Account (int id, int userId, String number, String hashNip){
+        this.id = id;
         this.userId = userId;
         this.number = number;
         this.hashNip = hashNip;
     }
     
-    public float calculateBalance(){
-        
-    }
+    
     
 }

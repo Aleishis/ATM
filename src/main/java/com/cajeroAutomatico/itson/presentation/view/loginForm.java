@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.cajeroAutomatico.itson.presentation.view;
+import com.cajeroAutomatico.itson.domain.model.Account;
 import com.cajeroAutomatico.itson.presentation.controller.atmController;
 import javax.swing.JOptionPane;
 
@@ -15,7 +16,8 @@ public class loginForm extends javax.swing.JFrame {
     /**
      * Creates new form loginForm
      */
-    public loginForm() {
+    
+    public loginForm(){
         initComponents();
     }
 
@@ -133,8 +135,13 @@ public class loginForm extends javax.swing.JFrame {
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         
-        if (atmController.login(txtAccount.getText(), txtNip.getText())){
+        Account acc = atmController.login(txtAccount.getText(), txtNip.getText());
+        
+        if (acc != null){
             JOptionPane.showMessageDialog(this, "Bienvenido");
+            this.setVisible(false);
+            Home home = new Home(acc);
+            home.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(this, "Algo salio mal");
         }

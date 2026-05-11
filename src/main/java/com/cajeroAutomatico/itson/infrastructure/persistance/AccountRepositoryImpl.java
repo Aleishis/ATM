@@ -26,7 +26,7 @@ public class AccountRepositoryImpl implements AccountRepository{
             
             
             if (rs.next()){
-               return new Account(rs.getInt("id"), rs.getString("number"), rs.getString("nip"));
+               return new Account(rs.getInt("id"),rs.getInt("user_id"),rs.getString("number"), rs.getString("nip"));
             }
             
             
@@ -40,22 +40,45 @@ public class AccountRepositoryImpl implements AccountRepository{
     
     @Override
     public boolean checkExists(String number){
-        Connection connection = DatabaseConnection.connect();
+        
         
         String query = "SELECT * FROM accounts WHERE number = ?";
         
-        try {
-            
-            PreparedStatement ps = connection.prepareStatement(query);
+        try (Connection connection = DatabaseConnection.connect();
+            PreparedStatement ps = connection.prepareStatement(query)){
             
             ps.setString(1, number);
             
             ResultSet rs = ps.executeQuery();
             
-            return rs.isBeforeFirst();
+            return rs.next();
             
         }
         catch (SQLException e){
+            e.printStackTrace();
+        }
+        
+       return false;
+    }
+    
+    @Override
+    public boolean checkExistsById(int id){
+        
+        
+        String query = "SELECT * FROM accounts WHERE id = ?";
+        
+        try (Connection connection = DatabaseConnection.connect();
+            PreparedStatement ps = connection.prepareStatement(query)){
+            
+            ps.setInt(1, id);
+            
+            ResultSet rs = ps.executeQuery();
+            
+            return rs.next();
+            
+        }
+        catch (SQLException e){
+            e.printStackTrace();
         }
         
        return false;

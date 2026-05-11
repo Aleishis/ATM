@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.cajeroAutomatico.itson.domain.repository;
+import java.util.ArrayList;
+import com.cajeroAutomatico.itson.domain.model.Transaction;
 
 /**
  *
@@ -10,7 +12,7 @@ package com.cajeroAutomatico.itson.domain.repository;
  */
 public interface TransactionRepository {
     
-    void getTransactionsByAccount(String id);
+    ArrayList<Transaction> getByAccount(int id);
     
     
     
